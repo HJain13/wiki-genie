@@ -5,10 +5,51 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Wiki Genie</title>
-	<link rel="stylesheet" href="wikipedia-genie.css">
+	<link rel="stylesheet" href="wikigenie.min.css">
 	<link rel="stylesheet" href="index.css">
 </head>
 <body>
+	<div class="section">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-8 is-offset-2">
+					<div class="has-text-centered">
+						<p class="title" >Wiki Genie</p>
+					</div>
+					<br/>
+					<div class="field">
+						<label class="label">Content</label>
+						<div class="control">
+							<textarea class="textarea" id="content-ta" placeholder="Type in your content"></textarea>
+						</div>
+					</div>											  
+					<div class="field is-grouped">
+						<div class="control">
+							<button class="button" onclick="submit()">Submit</button>
+						</div>
+						<div class="control">
+							<button class="button" onclick="clear()">Clear</button>
+						</div>
+					</div>
+					<br/>
+					<br/>
+					<div id="question">
+						<div class="field has-addons">
+							<div class="control is-expanded">
+								<input class="input" type="text" placeholder="Ask your Question!">
+							</div>
+							<div class="control">
+								<button type="submit" class="button is-info">Go</button>
+							</div>
+						</div>
+						<div class="content">
+							<p id="answer"><strong>Answer:</strong> </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script src="genie.js"></script>
 </body>
 </html>
