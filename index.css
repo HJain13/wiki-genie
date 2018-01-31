@@ -55,3 +55,12 @@
 .button:hover, .button:active {
 	background-color: #eee;	
 }
+
+button:disabled {
+	opacity: 0.5 !important;
+	background-color: #ddd !important;
+}
+
+#question {
+	display: none;
+}

@@ -17,22 +17,6 @@
 						<p class="title" >Wiki Genie</p>
 					</div>
 					<br/>
-					<div class="field">
-						<label class="label">Content</label>
-						<div class="control">
-							<textarea class="textarea" id="content-ta" placeholder="Type in your content"></textarea>
-						</div>
-					</div>											  
-					<div class="field is-grouped">
-						<div class="control">
-							<button class="button" onclick="submit()">Submit</button>
-						</div>
-						<div class="control">
-							<button class="button" onclick="clear()">Clear</button>
-						</div>
-					</div>
-					<br/>
-					<br/>
 					<div id="question">
 						<div class="field has-addons">
 							<div class="control is-expanded">
@@ -44,6 +28,23 @@
 						</div>
 						<div class="content">
 							<p id="answer"><strong>Answer:</strong> </p>
+						</div>
+					</div>
+					<br/>
+					<br/>
+					<div class="field">
+						<label class="label">Content</label>
+						<div class="control">
+							<textarea class="textarea" id="content-ta" placeholder="Type in your content"></textarea>
+						</div>
+						<p id="acceptedContent"></p>
+					</div>											  
+					<div class="field is-grouped">
+						<div class="control">
+							<button class="button" id="submit-bttn" onclick="submit()">Submit</button>
+						</div>
+						<div class="control">
+							<button class="button" id="clear-bttn" onclick="cleared()">Clear</button>
 						</div>
 					</div>
 				</div>
