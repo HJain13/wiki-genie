@@ -61,6 +61,7 @@ button:disabled {
 	background-color: #ddd !important;
 }
 
-#question {
+#question, #answer {
 	display: none;
 }
+
