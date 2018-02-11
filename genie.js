@@ -22,28 +22,41 @@ function cleared() {
 	document.getElementById('acceptedContent').style.display = 'none';	
 }
 
-
 function genie(){
 	var query = document.getElementById('query').value;
 	var querySimplified = query.toLowerCase().replace(/is |what |the |when |does |why |where |was |were |are |who |of /g,'');
 	var queryTerms = querySimplified.split(' ');
-	// Testing: console.log(queryTerms);
-	var flag = 0, found = -1;
+	var score, scores = [];
 	for(var i = 0; i < sentences.length; i++){
+		score = 0;
 		for(var j = 0; j < queryTerms.length; j++){
-			flag = 0;
-			// Testing: console.log(sentences[i].toLowerCase().search(queryTerms[j]));
-			if(sentences[i].toLowerCase().search(queryTerms[j]) == -1) {
-				flag = 1;
-				break;
+			if(sentences[i].toLowerCase().search(queryTerms[j]) != -1) {
+				score++;
 			}
 		}
-		if(flag != 1){
-			found = i;
-			break;
-		}
-		// Testing: console.log('Not found in string '+i+'.');
+		scores.push(score);
 	}	
+
+	var temp;
+	//Sorting
+	for(var i = 0; i < sentences.length-1; i++){
+		for(var j = 0; j < sentences.length-i-1; j++){
+			if(scores[j] < scores[j+1]){
+				temp = scores[j]
+				scores[j] = scores[j+1];
+				scores[j+1] = temp;
+				temp = sentences[j]
+				sentences[j] = sentences[j+1];
+				sentences[j+1] = temp;
+			}
+		}
+	}
+
 	document.getElementById('answer').style.display = 'block'	
-	document.getElementById('answer').innerHTML = '<p><strong>Answer: </strong>'+sentences[found]+'</p>';
+	document.getElementById('answer').innerHTML = "<p><strong>Answer: </strong></p>";
+	for(var i = 0; i < sentences.length; i++){
+		if(i==0) document.getElementById('answer').innerHTML += '<p><strong>CR: '+scores[i]+'</strong>&nbsp;'+sentences[i]+'</p>'; 
+		else document.getElementById('answer').innerHTML += '<p class="otherOptions"><strong>CR: '+scores[i]+'</strong>&nbsp;'+sentences[i]+'</p>'; 
+	}
+	// document.getElementById('answer').innerHTML = '<p><strong>Answer: </strong>'+sentences[found]+'</p>';
 }

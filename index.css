@@ -65,3 +65,8 @@ button:disabled {
 	display: none;
 }
 
+.otherOptions {
+  color: #555 !important;
+  font-size: 0.8rem !important;
+  margin: 0 !important;
+}
