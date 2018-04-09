@@ -24,17 +24,17 @@ function cleared() {
 
 function genie(){
 	var query = document.getElementById('query').value;
-	var querySimplified = query.toLowerCase().replace(/is |what |the |when |does |why |where |was |were |are |who |of /g,'');
+	var querySimplified = query.toLowerCase().replace(/is |what |the |when |does |why |where |was |were |are |who |how |many |much |of /g,'');
 	var queryTerms = querySimplified.split(' ');
 	var score, scores = [];
 	for(var i = 0; i < sentences.length; i++){
-		score = 0;
+		score = 1 - 0.1*(i+1);
 		for(var j = 0; j < queryTerms.length; j++){
 			if(sentences[i].toLowerCase().search(queryTerms[j]) != -1) {
 				score++;
 			}
 		}
-		scores.push(score);
+		scores.push(score.toPrecision(3));
 	}	
 
 	var temp;
