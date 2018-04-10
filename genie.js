@@ -10,8 +10,7 @@ function submit() {
 	sentences = processedContent.split('. ');
 	console.log(sentences);
 	ta.style.display = 'none';
-	document.getElementById('acceptedContent').innerText = processedContent;
-	document.getElementById('submit-bttn').disabled = true;
+	document.getElementById('submit-bttn').display = 'none';
 	document.getElementById('question').style.display = 'block'
 }
 
@@ -24,6 +23,7 @@ function cleared() {
 
 function genie(){
 	var query = document.getElementById('query').value;
+	document.getElementById('chat').innerHTML = document.getElementById('chat').innerHTML + '<div class="has-text-right"><div class="is-chat-bubble">'+query+'</div></div>';
 	var querySimplified = query.toLowerCase().replace(/is |what |the |when |does |why |where |was |were |are |who |how |many |much |of /g,'');
 	var queryTerms = querySimplified.split(' ');
 	var score, scores = [];
@@ -51,12 +51,14 @@ function genie(){
 			}
 		}
 	}
-
-	document.getElementById('answer').style.display = 'block'	
+	document.getElementById('chat').innerHTML = document.getElementById('chat').innerHTML + '<div><div class="is-chat-bubble">'+sentences[0]+'</div></div>';
+	// document.getElementById('answer').style.display = 'block'	
 	document.getElementById('answer').innerHTML = "<p><strong>Answer: </strong></p>";
 	for(var i = 0; i < sentences.length; i++){
 		if(i==0) document.getElementById('answer').innerHTML += '<p><strong>CR: '+scores[i]+'</strong>&nbsp;'+sentences[i]+'</p>'; 
 		else document.getElementById('answer').innerHTML += '<p class="otherOptions"><strong>CR: '+scores[i]+'</strong>&nbsp;'+sentences[i]+'</p>'; 
 	}
+	window.scroll(0, document.getElementById('chat').scrollHeight);
+	console.log(window.scrollY, document.getElementById('chat').scrollHeight);
 	// document.getElementById('answer').innerHTML = '<p><strong>Answer: </strong>'+sentences[found]+'</p>';
 }

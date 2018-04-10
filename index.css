@@ -6,7 +6,8 @@
 }
 
 .section {
-	padding: 1rem 1rem;
+  padding: 3rem 1rem 1rem 1rem;
+  min-height: 80vh
 }
 
 .button {
@@ -69,4 +70,44 @@ button:disabled {
   color: #555 !important;
   font-size: 0.8rem !important;
   margin: 0 !important;
+}
+
+.is-fixed-top {
+  position: fixed;
+  top: 0;
+}
+
+.is-header{
+  background-color: #fff;
+  width: 100%;
+  padding: 1em 0;
+  margin-bottom: 5px;
+  z-index: 10;
+}
+
+.is-chat {
+  position: fixed;
+  bottom: 0;  
+  width: 100%;
+  padding: 0 1em;
+}
+
+#chat-container {
+  position: absolute;
+  bottom: 4em;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  max-height: 80vh;
+}
+
+#chat {
+  margin-bottom: 4em;
+}
+
+.is-chat-bubble{
+  display: inline-block;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  padding: 0.75em 0.5em;
+  margin: 0.75em;
 }

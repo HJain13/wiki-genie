@@ -9,29 +9,14 @@
 	<link rel="stylesheet" href="index.css">
 </head>
 <body>
+	<div class="is-header is-fixed-top has-text-centered">
+		<p class="title" >Wiki Genie</p>
+	</div>
 	<div class="section">
 		<div class="container">
 			<div class="columns">
 				<div class="column is-8 is-offset-2">
-					<div class="has-text-centered">
-						<p class="title" >Wiki Genie</p>
-					</div>
 					<br/>
-					<div id="question">
-						<div class="field has-addons">
-							<div class="control is-expanded">
-								<input class="input" id="query" type="text" placeholder="Ask your Question!">
-							</div>
-							<div class="control">
-								<button type="submit" onclick="genie()" class="button is-info">Go</button>
-							</div>
-						</div>
-						<div class="content">
-							<p id="answer"><strong>Answer:</strong> </p>
-						</div>
-						<br/>
-						<br/>
-					</div>
 					<div class="field">
 						<label class="label">Content</label>
 						<div class="control">
@@ -45,6 +30,36 @@
 						</div>
 						<div class="control">
 							<button class="button" id="clear-bttn" onclick="cleared()">Clear</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="chat-container" class="container">
+			<div class="columns">
+				<div class="column is-8 is-offset-2">
+					<div id="chat">
+						
+					</div>
+				</div>			
+			</div>
+		</div>
+		<div class="is-chat">
+			<div class="container">
+				<div class="columns">
+					<div class="column is-8 is-offset-2">
+						<div id="question">
+							<div class="field has-addons">
+								<div class="control is-expanded">
+									<input class="input" id="query" type="text" placeholder="Ask your Question!">
+								</div>
+								<div class="control">
+									<button type="submit" onclick="genie()" class="button is-info">Go</button>
+								</div>
+							</div>
+							<div class="content">
+								<p id="answer"><strong>Answer:</strong> </p>
+							</div>
 						</div>
 					</div>
 				</div>
